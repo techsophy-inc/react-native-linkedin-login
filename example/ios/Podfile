@@ -3,7 +3,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, "9.1"
 inhibit_all_warnings!
 
-def available_pods
+def pods_for_react_native_linkedIn_package
     pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
     'RCTActionSheet',
@@ -18,13 +18,18 @@ def available_pods
     'RCTVibration',
     'RCTWebSocket',
   ]
-  pod 'react-native-linkedin-login', :path => '../../'
+  pod "react-native-linkedin-login", :path => "../node_modules/react-native-linkedin-login"
+
+  # yoga is required for RN40 and above versions. If you don't include yoga then you will get
+  # Error =>  Unable to satisfy the following requirements:
+  #          'Yoga (= 0.42.0.React)' required by 'React/Core(0.42)'
+  pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
 end
 
 target 'RNLinkedinLoginExample' do
-  available_pods
+  pods_for_react_native_linkedIn_package
 end
 
 target 'RNLinkedinLoginExampleTests' do
-    available_pods
+  pods_for_react_native_linkedIn_package
 end
