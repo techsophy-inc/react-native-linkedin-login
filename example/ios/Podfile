@@ -3,7 +3,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, "9.1"
 inhibit_all_warnings!
 
-def pods_for_react_native_linkedIn_package
+def available_pods
     pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
     'RCTActionSheet',
@@ -27,9 +27,9 @@ def pods_for_react_native_linkedIn_package
 end
 
 target 'RNLinkedinLoginExample' do
-  pods_for_react_native_linkedIn_package
+  available_pods
 end
 
 target 'RNLinkedinLoginExampleTests' do
-  pods_for_react_native_linkedIn_package
+  available_pods
 end
