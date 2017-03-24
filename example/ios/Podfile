@@ -31,5 +31,5 @@ target 'RNLinkedinLoginExample' do
 end
 
 target 'RNLinkedinLoginExampleTests' do
-  available_pods
+   available_pods
 end
